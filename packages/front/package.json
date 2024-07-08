@@ -6,6 +6,7 @@
     "start": "webpack serve --mode development"
   },
   "dependencies": {
+    "@test-mono/common": "^1.0.0",
     "axios": "^1.7.2",
     "css-loader": "^7.1.2",
     "dotenv-webpack": "^8.1.0",

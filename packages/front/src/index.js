@@ -1,5 +1,6 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
+import {testFunc} from '@test-mono/common';
 
 const App = () => {
 	const handleClick = async () => {
@@ -7,6 +8,7 @@ const App = () => {
 			const response = await fetch('http://localhost:3001/');
 			const message = await response.text();
 			alert(message);
+			alert(testFunc());
 		} catch (error) {
 			console.error('Error fetching data:', error);
 		}
@@ -14,7 +16,7 @@ const App = () => {
 
 	return (
 		<div>
-			<button onClick={handleClick}>버튼 클릭 테스트</button>
+			<button onClick={handleClick}>Send Request to Back</button>
 		</div>
 	);
 };
