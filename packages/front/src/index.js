@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {createRoot} from 'react-dom/client';
 import {testFunc} from '@test-mono/common';
+import FrontTest from './FrontTest';
 
 const App = () => {
 	const handleClick = async () => {
@@ -17,6 +18,7 @@ const App = () => {
 	return (
 		<div>
 			<button onClick={handleClick}>Send Request to Back</button>
+			<FrontTest />
 		</div>
 	);
 };

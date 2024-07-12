@@ -12,11 +12,11 @@ module.exports = {
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'app.js',
-		publicPath: 'http://localhost:3000/',
+		publicPath: 'http://localhost:3002/',
 	},
 	devtool: 'source-map',
 	devServer: {
-		port: 3000,
+		port: 3002,
 		open: true,
 		historyApiFallback: true,
 	},
@@ -48,12 +48,12 @@ module.exports = {
 	},
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'main',
-			filename: 'static/chunks/remoteEntry.js',
-			remotes: {
-				admin: 'admin@http://localhost:3002/remoteEntry.js',
+			name: 'admin',
+			filename: 'remoteEntry.js',
+			remotes: {},
+			exposes: {
+				'./Admin': './src/AdminTest.js',
 			},
-			exposes: {},
 			// shared: {
 			// 	...deps,
 			// 	react: {
@@ -64,11 +64,7 @@ module.exports = {
 			// 		singleton: true,
 			// 		requiredVersion: deps['react-dom'],
 			// 	},
-			// 	'react-router-dom': {
-			// 		singleton: true,
-			// 		requiredVersion: deps['react-router-dom'],
-			// 	},
-			// },react-router-dom
+			// },
 		}),
 		new HtmlWebpackPlugin({
 			template: 'public/index.html',
