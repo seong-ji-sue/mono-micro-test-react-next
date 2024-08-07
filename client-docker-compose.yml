@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  eddy-am-ui-client:
+    image: am-ui-client:latest
+    container_name: am-ui-client
+    ports:
+      - "3000:3000"
+    env_file:
+      - path: config/.env.production
+        required: true
+
+

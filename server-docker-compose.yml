@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  eddy-am-ui-server:
+    image: am-ui-server:latest
+    container_name: am-ui-server
+    ports:
+      - "3001:3001"
+    # restart: always
+    env_file:
+      - path: ./config/.env.production
+        required: true
+
+
