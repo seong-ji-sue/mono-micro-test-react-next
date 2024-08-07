@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  eddy-am-ui-server:
-    image: am-ui-server:latest
-    container_name: am-ui-server
+  test-mono-server:
+    image: test-mono-server:latest
+    container_name: test-mono-server
     ports:
       - "3001:3001"
     # restart: always

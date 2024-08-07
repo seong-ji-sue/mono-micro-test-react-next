@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  eddy-am-ui-admin:
-    image: am-ui-admin:latest
-    container_name: am-ui-admin
+  test-mono-app:
+    image: test-mono-app:latest
+    container_name: test-mono-app
     ports:
       - "3002:3002"
     env_file:

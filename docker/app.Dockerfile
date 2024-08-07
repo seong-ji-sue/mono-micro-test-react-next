@@ -7,7 +7,7 @@ ENV PYTHON python3
 WORKDIR /app
 
 COPY ../package*.json lerna.json ./
-COPY ../packages/admin/ ./packages/admin/
+COPY ../packages/application/ ./packages/application/
 COPY ../packages/common ./packages/common/
 
 RUN yarn install
@@ -19,10 +19,10 @@ WORKDIR /app
 
 COPY ../package*.json lerna.json ./
 
-COPY --from=base /app/packages/admin/ ./packages/admin/
+COPY --from=base /app/packages/application/ ./packages/application/
 
 COPY --from=base /app/node_modules ./node_modules
-COPY --from=base /app/packages/admin/node_modules ./packages/admin/node_modules
+COPY --from=base /app/packages/application/node_modules ./packages/application/node_modules
 COPY --from=base /app/packages/common/ ./packages/common/
 
-CMD ["yarn", "run", "run-admin"]
+CMD ["yarn", "run", "run-app"]

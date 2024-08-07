@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  eddy-am-ui-client:
-    image: am-ui-client:latest
-    container_name: am-ui-client
+  test-mono-client:
+    image: test-mono-client:latest
+    container_name: test-mono-client
     ports:
       - "3000:3000"
     env_file:
