@@ -1,6 +1,0 @@
-{
-  "ignore": ["node_modules"],
-  "watch": ["yarn.lock"],
-  "exec": "babel-node index.js",
-  "ext": "js,json"
-}

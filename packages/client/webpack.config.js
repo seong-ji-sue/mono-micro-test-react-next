@@ -16,24 +16,39 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	devServer: {
+		server: 'http',
+		host: '0.0.0.0',
 		port: 3000,
 		open: true,
 		historyApiFallback: true,
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+		},
 	},
 	module: {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: 'babel-loader',
+				use: {
+					loader: 'babel-loader',
+					options: {presets: ['@babel/env', '@babel/preset-react']},
+				},
 			},
 			{
 				test: /\.html$/,
-				use: 'html-loader',
+				use: [
+					{
+						loader: 'html-loader',
+						options: {
+							minimize: true,
+						},
+					},
+				],
 			},
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
+				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.(jpg|png|svg)$/,
@@ -49,26 +64,25 @@ module.exports = {
 	plugins: [
 		new ModuleFederationPlugin({
 			name: 'main',
-			filename: 'static/chunks/remoteEntry.js',
+			filename: 'remoteEntry.js',
 			remotes: {
-				admin: 'admin@http://localhost:3002/remoteEntry.js',
+				app: 'app@http://localhost:3002/remoteEntry.js',
 			},
-			exposes: {},
-			// shared: {
-			// 	...deps,
-			// 	react: {
-			// 		singleton: true,
-			// 		requiredVersion: deps.react,
-			// 	},
-			// 	'react-dom': {
-			// 		singleton: true,
-			// 		requiredVersion: deps['react-dom'],
-			// 	},
-			// 	'react-router-dom': {
-			// 		singleton: true,
-			// 		requiredVersion: deps['react-router-dom'],
-			// 	},
-			// },react-router-dom
+			shared: {
+				react: {
+					singleton: true,
+					eager: true,
+				},
+				'react-dom': {
+					singleton: true,
+					eager: true,
+					requiredVersion: deps['react-dom'],
+				},
+				'react-router-dom': {
+					singleton: true,
+					eager: true,
+				},
+			},
 		}),
 		new HtmlWebpackPlugin({
 			template: 'public/index.html',

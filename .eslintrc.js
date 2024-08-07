@@ -2,9 +2,8 @@ module.exports = {
 	env: {
 		browser: true,
 		es2021: true,
-		node: true,
 	},
-	extends: ['prettier', 'eslint:recommended', 'plugin:react/recommended'],
+	extends: ['eslint:recommended', 'plugin:react/recommended'],
 	overrides: [
 		{
 			env: {
@@ -19,15 +18,15 @@ module.exports = {
 	parserOptions: {
 		ecmaVersion: 'latest',
 		sourceType: 'module',
-		ecmaFeatures: {jsx: true},
 	},
-	plugins: ['react', 'prettier'],
+	plugins: ['react'],
 	rules: {
-		'prettier/prettier': 'error',
-		'react/react-in-jsx-scope': 'off',
-		'react/prop-types': 'off',
-		'react/jsx-filename-extension': [1, {extensions: ['.js', '.jsx']}],
-		'no-unused-vars': 'off',
-		'react/display-name': 'off',
+		'react/react-in-jsx-scope': 'off', // 이 줄을 추가하여 규칙을 비활성화
+		'no-unused-vars': 'off', //_ 활성화
+	},
+	settings: {
+		react: {
+			version: 'detect', // React 버전을 자동으로 감지
+		},
 	},
 };

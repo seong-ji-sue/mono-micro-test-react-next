@@ -16,24 +16,39 @@ module.exports = {
 	},
 	devtool: 'source-map',
 	devServer: {
+		server: 'http',
+		host: '0.0.0.0',
 		port: 3002,
-		open: true,
+		open: false,
 		historyApiFallback: true,
+		headers: {
+			'Access-Control-Allow-Origin': '*',
+		},
 	},
 	module: {
 		rules: [
 			{
 				test: /\.(js|jsx)$/,
 				exclude: /node_modules/,
-				use: 'babel-loader',
+				use: {
+					loader: 'babel-loader',
+					options: {presets: ['@babel/env', '@babel/preset-react']},
+				},
 			},
 			{
 				test: /\.html$/,
-				use: 'html-loader',
+				use: [
+					{
+						loader: 'html-loader',
+						options: {
+							minimize: true,
+						},
+					},
+				],
 			},
 			{
 				test: /\.css$/,
-				use: ['style-loader', 'css-loader'],
+				use: ['style-loader', 'css-loader', 'sass-loader'],
 			},
 			{
 				test: /\.(jpg|png|svg)$/,
@@ -46,25 +61,31 @@ module.exports = {
 			},
 		],
 	},
+
 	plugins: [
 		new ModuleFederationPlugin({
-			name: 'admin',
+			name: 'app',
 			filename: 'remoteEntry.js',
-			remotes: {},
 			exposes: {
 				'./Admin': './src/AdminTest.js',
 			},
-			// shared: {
-			// 	...deps,
-			// 	react: {
-			// 		singleton: true,
-			// 		requiredVersion: deps.react,
-			// 	},
-			// 	'react-dom': {
-			// 		singleton: true,
-			// 		requiredVersion: deps['react-dom'],
-			// 	},
-			// },
+			shared: {
+				react: {
+					singleton: true,
+					eager: true,
+					requiredVersion: deps.react,
+				},
+				'react-dom': {
+					singleton: true,
+					eager: true,
+					requiredVersion: deps['react-dom'],
+				},
+				'react-router-dom': {
+					singleton: true,
+					eager: true,
+					requiredVersion: deps['react-router-dom'],
+				},
+			},
 		}),
 		new HtmlWebpackPlugin({
 			template: 'public/index.html',

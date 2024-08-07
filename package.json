@@ -1,31 +1,30 @@
 {
   "name": "@test-mono/root",
   "private": true,
-  "license": "MIT",
   "workspaces": [
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run start --parallel",
+    "start": "lerna run start --stream",
     "build": "lerna run build",
-    "bootstrap": "lerna bootstrap --hoist"
+    "run-server": "yarn workspace @eddy-am-ui/server run run",
+    "run-client": "yarn workspace @eddy-am-ui/client run run",
+    "run-app": "yarn workspace @eddy-am-ui/app run run"
   },
   "dependencies": {
-    "lerna": "^4.0.0"
+    "axios": "^1.7.2",
+    "dayjs": "^1.11.11",
+    "dotenv": "^16.4.5",
+    "dotenv-webpack": "^8.1.0",
+    "lodash-es": "^4.17.21",
+    "path": "^0.12.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/eslint-parser": "^7.24.7",
-    "@babel/preset-env": "^7.24.7",
-    "@typescript-eslint/eslint-plugin": "^7.0.2",
-    "@typescript-eslint/parser": "^7.0.2",
-    "babel-eslint": "^10.1.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-react": "^7.34.3",
+    "lerna": "^8.1.3",
     "prettier": "^3.3.2"
   }
 }
