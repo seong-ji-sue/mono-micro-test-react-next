@@ -7,9 +7,9 @@
   "scripts": {
     "start": "lerna run start --stream",
     "build": "lerna run build",
-    "run-server": "yarn workspace @eddy-am-ui/server run run",
-    "run-client": "yarn workspace @eddy-am-ui/client run run",
-    "run-app": "yarn workspace @eddy-am-ui/app run run"
+    "run-server": "yarn workspace @test-mono/server run run",
+    "run-client": "yarn workspace @test-mono/client run run",
+    "run-app": "yarn workspace @test-mono/app run run"
   },
   "dependencies": {
     "axios": "^1.7.2",

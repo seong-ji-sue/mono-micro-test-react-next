@@ -1,5 +1,5 @@
 {
-  "name": "@test-mono/back",
+  "name": "@test-mono/server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
