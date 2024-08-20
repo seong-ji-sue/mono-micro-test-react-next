@@ -1,5 +1,9 @@
-node_modules/
 .idea
 .idea/*.xml
+*.tar
+
+node_modules/
+
+.next
 
 package-lock.json
