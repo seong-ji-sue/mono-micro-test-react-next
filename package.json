@@ -5,8 +5,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run start --stream",
-    "build": "lerna run build",
+    "start": "yarn lerna run start --stream",
+    "build": "yarn lerna run build",
     "run-server": "yarn workspace @test-mono/server run run",
     "run-client": "yarn workspace @test-mono/client run run",
     "run-app": "yarn workspace @test-mono/app run run"

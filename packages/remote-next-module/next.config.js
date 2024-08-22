@@ -11,30 +11,6 @@ module.exports = {
 	reactStrictMode: true,
 	pageExtensions: ['js', 'jsx'],
 
-	// CORS 설정 추가
-	async headers() {
-		return [
-			{
-				source: '/(.*)',
-				headers: [
-					{
-						key: 'Access-Control-Allow-Origin',
-						value: '*',
-					},
-					{
-						key: 'Access-Control-Allow-Methods',
-						value: 'GET,HEAD,OPTIONS,POST,PUT',
-					},
-					{
-						key: 'Access-Control-Allow-Headers',
-						value:
-							'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-					},
-				],
-			},
-		];
-	},
-
 	// Webpack 설정
 	webpack: (config, {isServer}) => {
 		if (!isServer) {
@@ -50,19 +26,22 @@ module.exports = {
 						// 'next/router': {singleton: true},
 						react: {
 							singleton: true,
-							eager: true,
-							requiredVersion: deps.react,
+							// eager: true,
+							requiredVersion: false,
 						},
-						'react-dom': {
-							singleton: true,
-							eager: true,
-							requiredVersion: deps['react-dom'],
-						},
-						'react-router-dom': {
-							singleton: true,
-							eager: true,
-							requiredVersion: deps['react-router-dom'],
-						},
+						// 'react-dom': {
+						// 	singleton: true,
+						// 	// eager: true,
+						// 	requiredVersion: deps['react-dom'],
+						// },
+						// 'react-router-dom': {
+						// 	singleton: true,
+						// 	// eager: true,
+						// 	requiredVersion: deps['react-router-dom'],
+						// },
+					},
+					extraOptions: {
+						skipSharingNextInternals: true,
 					},
 				}),
 			);
