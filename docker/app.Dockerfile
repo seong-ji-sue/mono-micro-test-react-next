@@ -7,7 +7,7 @@ ENV PYTHON python3
 WORKDIR /app
 
 COPY ../package*.json lerna.json ./
-COPY ../packages/application/ ./packages/application/
+COPY ../packages/remote-react-module/ ./packages/application/
 COPY ../packages/common ./packages/common/
 
 RUN yarn install
