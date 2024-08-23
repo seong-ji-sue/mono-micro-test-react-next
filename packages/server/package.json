@@ -5,8 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "NODE_ENV=development nodemon --exec babel-node index.js",
-    "run": "nodemon --exec babel-node index.js"
+    "start": "nodemon --exec babel-node index.js"
   },
   "keywords": [],
   "author": "",

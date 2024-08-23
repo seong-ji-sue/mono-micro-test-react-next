@@ -4,10 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=development webpack-dev-server --mode development",
-    "build": "webpack --mode production",
-    "prerun": "webpack --mode production",
-    "run": "node server.js"
+    "start": "webpack-dev-server --mode development"
   },
   "keywords": [],
   "author": "",

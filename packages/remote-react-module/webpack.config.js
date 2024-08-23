@@ -6,19 +6,27 @@ const webpack = require('webpack');
 const {ModuleFederationPlugin} = webpack.container;
 
 module.exports = () => {
-	dotenv.config({path: `../../config/.env.${process.env.NODE_ENV}`});
-	console.log('WEBPACK - NODE_ENV: ----->' + process.env.NODE_ENV);
-
 	const common = {
-		mode: `${process.env.NODE_ENV}`,
+		mode: 'development',
 		entry: './src/index.js',
 		resolve: {
 			extensions: ['.js', '.jsx'],
 		},
+		devtool: 'source-map',
+		devServer: {
+			server: 'http',
+			host: '0.0.0.0',
+			port: 3001,
+			open: true,
+			historyApiFallback: true,
+			headers: {
+				'Access-Control-Allow-Origin': '*',
+			},
+		},
 		output: {
 			path: path.resolve(__dirname, 'dist'),
 			filename: 'app.js',
-			publicPath: 'http://localhost:3002/',
+			publicPath: 'http://localhost:3001/',
 			clean: true,
 		},
 		module: {
@@ -89,20 +97,6 @@ module.exports = () => {
 			new webpack.DefinePlugin({}),
 		],
 	};
-	if (process.env.NODE_ENV === 'development') {
-		common.devtool = 'source-map';
-		common.devServer = {
-			server: 'http',
-			host: '0.0.0.0',
-			port: 3002,
-			open: true,
-			historyApiFallback: true,
-			headers: {
-				'Access-Control-Allow-Origin': '*',
-			},
-		};
-	} else {
-		common.devtool = 'hidden-source-map';
-	}
+
 	return common;
 };
