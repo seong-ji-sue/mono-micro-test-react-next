@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {testFunc} from '@test-mono/common';
+import {testFunc} from '@micromono/common';
 
 function AdminTest() {
 	const [title, setTitle] = useState('');

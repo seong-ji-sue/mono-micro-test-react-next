@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  test-mono-server:
-    image: test-mono-server:latest
-    container_name: test-mono-server
+  micromono-server:
+    image: micromono-server:latest
+    container_name: micromono-server
     ports:
       - "3001:3001"
     # restart: always

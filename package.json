@@ -1,5 +1,5 @@
 {
-  "name": "@test-mono/root",
+  "name": "@micromono/root",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -7,9 +7,9 @@
   "scripts": {
     "start": "yarn lerna run start --stream",
     "build": "yarn lerna run build",
-    "run-server": "yarn workspace @test-mono/server run run",
-    "run-client": "yarn workspace @test-mono/client run run",
-    "run-app": "yarn workspace @test-mono/app run run"
+    "run-server": "yarn workspace @micromono/server run run",
+    "run-client": "yarn workspace @micromono/client run run",
+    "run-app": "yarn workspace @micromono/app run run"
   },
   "dependencies": {
     "axios": "^1.7.2",

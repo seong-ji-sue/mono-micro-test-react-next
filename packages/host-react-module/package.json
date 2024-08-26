@@ -1,5 +1,5 @@
 {
-  "name": "@test-mono/host-react-module",
+  "name": "@micromono/host-react-module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@test-mono/common": "^1.0.0",
+    "@micromono/common": "^1.0.0",
     "css-loader": "^7.1.2",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

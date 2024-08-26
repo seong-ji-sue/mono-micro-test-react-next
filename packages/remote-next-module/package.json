@@ -1,5 +1,5 @@
 {
-  "name": "@test-mono/remote-next-module",
+  "name": "@micromono/remote-next-module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

@@ -1,5 +1,5 @@
 import express from 'express';
-import {testFunc} from '@test-mono/common';
+import {testFunc} from '@micromono/common';
 import cors from 'cors';
 
 const app = express();

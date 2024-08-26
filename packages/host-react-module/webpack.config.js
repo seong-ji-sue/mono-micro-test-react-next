@@ -63,9 +63,9 @@ module.exports = () => {
 				filename: 'remoteEntry.js',
 				remotes: {
 					remote_react_module:
-						'remote_react_module@http://localhost:3002/remoteEntry.js',
+						'remote_react_module@http://localhost:3001/remoteEntry.js',
 					remote_next_module:
-						'remote_next_module@http://localhost:3005/_next/static/chunks/remoteEntry.js',
+						'remote_next_module@http://localhost:3002/_next/static/chunks/remoteEntry.js',
 				},
 				shared: {
 					react: {

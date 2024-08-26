@@ -1,5 +1,5 @@
 {
-  "name": "@test-mono/server",
+  "name": "@micromono/server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,7 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@test-mono/common": "^1.0.0",
+    "@micromono/common": "^1.0.0",
     "express": "^4.17.1",
     "body-parser": "^1.20.2",
     "cors": "^2.8.5"

@@ -1,5 +1,5 @@
 {
-  "name": "@test-mono/common",
+  "name": "@micromono/common",
   "version": "1.0.0",
   "description": "사용되는 공통 요소",
   "main": "src/index.js",

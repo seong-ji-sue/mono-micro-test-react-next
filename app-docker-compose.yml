@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  test-mono-app:
-    image: test-mono-app:latest
-    container_name: test-mono-app
+  micromono-app:
+    image: micromono-app:latest
+    container_name: micromono-app
     ports:
       - "3002:3002"
     env_file:

@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  test-mono-client:
-    image: test-mono-client:latest
-    container_name: test-mono-client
+  micromono-client:
+    image: micromono-client:latest
+    container_name: micromono-client
     ports:
       - "3000:3000"
     env_file:
