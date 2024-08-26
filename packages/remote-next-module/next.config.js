@@ -19,7 +19,8 @@ module.exports = {
 					name: 'remote_next_module',
 					filename: 'static/chunks/remoteEntry.js',
 					exposes: {
-						'./SsrTest': './src/component/SsrTest.js',
+						'./test': './src/pages/test/index.js',
+						'./main': './src/pages/index.js',
 					},
 					shared: {
 						// 'next/navigation': {singleton: true},
