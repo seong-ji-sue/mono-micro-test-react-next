@@ -16,11 +16,13 @@ module.exports = {
 		if (!isServer) {
 			config.plugins.push(
 				new NextFederationPlugin({
-					name: 'remote_next_module',
+					name: 'host_next_module',
 					filename: 'static/chunks/remoteEntry.js',
-					exposes: {
-						'./test': './src/pages/test/index.js',
-						'./main': './src/pages/index.js',
+					remotes: {
+						remote_react_module:
+							'remote_react_module@http://localhost:3001/remoteEntry.js',
+						remote_next_module:
+							'remote_next_module@http://localhost:3002/_next/static/chunks/remoteEntry.js',
 					},
 					shared: {
 						'next/navigation': {singleton: true},
@@ -40,9 +42,6 @@ module.exports = {
 						// 	// eager: true,
 						// 	requiredVersion: deps['react-router-dom'],
 						// },
-					},
-					extraOptions: {
-						skipSharingNextInternals: true,
 					},
 				}),
 			);
